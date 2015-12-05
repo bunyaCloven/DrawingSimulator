@@ -3,7 +3,7 @@ package com.ca.drawing;
 import java.awt.Canvas;
 import java.awt.Point;
 
-/** class for Triangle objects */
+/** class that represent Triangle */
 public class Triangle extends Shape {
     /** first point of the triangle */
 	private Point point0;
@@ -45,7 +45,7 @@ public class Triangle extends Shape {
 	}
 
 	
-	/** calculate the area if the triangle*/
+	/** @return area of the triangle*/
 	@Override
 	public Double getArea() {
 		final Double edge0 = calculateDistance(getPoint0(), getPoint1());
@@ -55,14 +55,14 @@ public class Triangle extends Shape {
 				(edge0 + edge1 + edge2) * (-edge0 + edge1 + edge2) * (edge0 - edge1 + edge2) * (edge0 + edge1 - edge2));
 	}
 	
-	/** draw method for triangle */
+	/** draws the triangle to the canvas */
 	@Override
 	public void draw(final Canvas canvas) {
 		  // FIXME: not implemented
 
 	}
 
-	/** delete method for triangle */
+	/** deletes the triangle */
 	@Override
 	public void delete() {
 		  // FIXME: not implemented
