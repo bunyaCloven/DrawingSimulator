@@ -8,6 +8,7 @@ import java.util.Set;
 public abstract class Drawable {
 	/** abstract; does nothing */
 	protected Drawable() {
+		// empty, because abstract
 	}
 
 	/** @return the used colors */
