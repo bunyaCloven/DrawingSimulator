@@ -8,7 +8,6 @@ import java.util.Set;
 public abstract class Drawable {
 	/** abstract; does nothing */
 	protected Drawable() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/** @return the used colors */
