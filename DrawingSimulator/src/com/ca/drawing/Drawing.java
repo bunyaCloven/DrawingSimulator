@@ -26,7 +26,7 @@ public class Drawing extends Drawable {
 	@Override
 	public Set<Color> getUsedColors() {
 		final Set<Color> colorsUsed = new HashSet<>();
-		for (final Drawable subDrawing : subDrawings) {
+		for (final Drawable subDrawing : getSubDrawings()) {
 			colorsUsed.addAll(subDrawing.getUsedColors());
 		}
 		colorsUsed.remove(null);
@@ -37,7 +37,7 @@ public class Drawing extends Drawable {
 	@Override
 	public Double getArea() {
 		Double result = .0;
-		for (final Drawable subDrawing : subDrawings) {
+		for (final Drawable subDrawing : getSubDrawings()) {
 			result += subDrawing.getArea();
 		}
 		return result;
@@ -46,15 +46,11 @@ public class Drawing extends Drawable {
 	/** @return string representation of the leaves of the shape tree */
 	public String getShapesList() {
 		final StringBuilder result = new StringBuilder();
-		for (final Drawable drawable : subDrawings) {
+		for (final Drawable drawable : getSubDrawings()) {
 			result.append(',');
-			if (drawable instanceof Drawing) {
-				result.append(((Drawing) drawable).getShapesList());
-			} else {
-				result.append(getShapeName(drawable.getClass()));
-			}
+			result.append(getShapeName(drawable));
 		}
-		if (result.length() == 1) {
+		if (result.length() > 0) {
 			result.deleteCharAt(0);
 		}
 		return result.toString();
@@ -63,10 +59,10 @@ public class Drawing extends Drawable {
 	/** deletes this drawing and all its subdrawings */
 	@Override
 	public void delete() {
-		for (final Drawable subDrawing : subDrawings) {
+		for (final Drawable subDrawing : getSubDrawings()) {
 			subDrawing.delete();
 		}
-		subDrawings.removeAll(subDrawings);
+		subDrawings.removeAll(getSubDrawings());
 	}
 
 	/** adds a drawable to this drawing */
@@ -74,7 +70,19 @@ public class Drawing extends Drawable {
 		subDrawings.add(drawable);
 	}
 
-	private String getShapeName(final Class<?> klass) {
+	private String getShapeName(final Drawable item) {
+		String result = getName(item.getClass());
+		if (item instanceof Drawing) {
+			result = ((Drawing) item).getShapesList(); // NOPMD
+		}
+		return result;
+	}
+
+	private String getName(final Class<?> klass) {
 		return klass.getSimpleName();
+	}
+
+	private List<Drawable> getSubDrawings() {
+		return subDrawings;
 	}
 }
