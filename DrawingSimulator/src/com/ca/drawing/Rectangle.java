@@ -3,8 +3,8 @@ package com.ca.drawing;
 import java.awt.Canvas;
 import java.awt.Point;
 
+/** Class that represents rectangles */
 public class Rectangle extends Shape {
-	@SuppressWarnings("unused")
 	/** the top left corner */
 	private Point corner0;
 	/** the vertical length of the rectangle */
@@ -32,20 +32,23 @@ public class Rectangle extends Shape {
 		this.height = height;
 	}
 
+	/** @return area of the rectangle */
 	@Override
 	public Double getArea() {
 		return length * height;
 	}
 
+	/** draws the rectangle to canvas */
 	@Override
-	public void draw(Canvas canvas) {
-		// TODO Auto-generated method stub
+	public void draw(final Canvas canvas) {
+		// FIXME: not implemented
 
 	}
 
+	/** deletes this rectangle */
 	@Override
 	public void delete() {
-		// TODO Auto-generated method stub
+		// FIXME: not implemented
 
 	}
 

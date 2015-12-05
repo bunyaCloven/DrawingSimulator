@@ -6,7 +6,6 @@ import java.awt.Point;
 /** application class for simulating behavior */
 public final class DrawingSimulator {
 	private DrawingSimulator() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@SuppressWarnings("PMD.SystemPrintln")
@@ -16,10 +15,14 @@ public final class DrawingSimulator {
 		final Drawing sub0 = new Drawing();
 		final Drawing sub1 = new Drawing();
 		final Drawing roof = new Drawing();
-		final Triangle tri0 = new Triangle(new Point(0, 0), new Point(0, 3), new Point(4, 0));
-		final Triangle tri1 = new Triangle(new Point(0, 0), new Point(0, 5), new Point(12, 0));
-		final Triangle tri2 = new Triangle(new Point(0, 0), new Point(0, 7), new Point(24, 0));
-		final Triangle tri3 = new Triangle(new Point(0, 1), new Point(0, 7), new Point(15, 0));
+		final Triangle tri0 = new Triangle(new Point(0, 0), new Point(0, 3),
+				new Point(4, 0));
+		final Triangle tri1 = new Triangle(new Point(0, 0), new Point(0, 5),
+				new Point(12, 0));
+		final Triangle tri2 = new Triangle(new Point(0, 0), new Point(0, 7),
+				new Point(24, 0));
+		final Triangle tri3 = new Triangle(new Point(0, 1), new Point(0, 7),
+				new Point(15, 0));
 		final Rectangle rect0 = new Rectangle(new Point(0, 0), 10., 5.);
 		final Rectangle rect1 = new Rectangle(new Point(0, 0), 7., 19.);
 		final Rectangle rect2 = new Rectangle(new Point(0, 0), .7, .96);
